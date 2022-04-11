@@ -15,6 +15,8 @@ services:
     volumes:
 #      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
       - ./db_data:/var/lib/mysql # Use bind mount
+    ports:
+      - "${DB_PORT_EXTERNAL}:${DB_PORT}"
 
   php:
     image: wodby/drupal-php:$PHP_TAG
